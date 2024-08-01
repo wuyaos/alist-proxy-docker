@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:edge
 
 ARG PROXY_VER=0.0.6
 
@@ -9,7 +9,7 @@ WORKDIR /usr/local/bin
 COPY ./entrypoint.sh /usr/local/bin/
 
 RUN apk update &&\
-    apk install tini wget ca-certificates &&\
+    apk add tini wget ca-certificates &&\
     arch=$(uname -m | sed "s#x86_64#amd64#; s#aarch64#arm64#; s#i386#386#") &&\
     wget -O ./alist-proxy.zip -t 4 -T 5 "https://github.com/alist-org/alist-proxy/releases/download/v${PROXY_VER}/alist-proxy_v${PROXY_VER}_linux_${arch}.zip" &&\
     tar -xvzf ./alist-proxy.zip &&\
