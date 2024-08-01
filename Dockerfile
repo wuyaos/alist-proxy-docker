@@ -11,7 +11,7 @@ COPY ./entrypoint.sh /usr/local/bin/
 RUN apk update &&\
     apk add tini wget ca-certificates &&\
     arch=$(uname -m | sed "s#x86_64#amd64#; s#aarch64#arm64#; s#i386#386#") &&\
-    wget -O ./alist-proxy.zip -t 4 -T 5 "https://github.com/alist-org/alist-proxy/releases/download/v${PROXY_VER}/alist-proxy_${PROXY_VER}_linux_${arch}.zip" &&\
+    wget -O ./alist-proxy.zip -t 4 -T 5 "https://github.com/alist-org/alist-proxy/releases/download/v${PROXY_VER}/alist-proxy_${PROXY_VER}_linux_${arch}.tar.gz" &&\
     tar -xvzf ./alist-proxy.zip &&\
     rm -f ./alist-proxy.zip &&\
     chmod +x ./entrypoint.sh &&\
