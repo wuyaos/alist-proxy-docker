@@ -6,4 +6,4 @@ if [[ -z "${address}" || -z "${token}" ]]; then
     exit 1
 fi
 
-exec /usr/local/bin/alist-proxy -${token} -${token} -port ${port}
+exec /usr/local/bin/alist-proxy -address ${address} -token ${token} -port ${port}
