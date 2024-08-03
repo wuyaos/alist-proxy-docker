@@ -2,7 +2,7 @@ FROM debian:11-slim
 
 ARG PROXY_VER=0.0.6
 
-ENV address="" token="" port="5243"
+ENV ADDRESS="" TOKEN="" PORT="5243"
 
 WORKDIR /usr/local/bin
 
